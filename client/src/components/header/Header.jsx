@@ -1,6 +1,4 @@
 
-
-
 import { AppBar, Toolbar, styled } from '@mui/material';
 import Box from '@mui/material/Box';
 
@@ -13,7 +11,6 @@ const Component = styled(Box)({
     marginLeft: '12%',
   });
   
-
 const Header = () => {
 const logoURL = 'https://i.ibb.co/fv5ZZQd/profile.png';
   return (
