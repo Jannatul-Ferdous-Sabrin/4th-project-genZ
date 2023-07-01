@@ -1,22 +1,24 @@
+
+
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
+  "description": "Server contains the backend and DB collections",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Sabrin",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^16.3.1",
-    "express": "^4.18.2",
-    "mongodb": "^2.2.12",
-    "mongoose": "^7.3.1"
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.9",
+    "mongoose": "^6.0.10"
   },
   "devDependencies": {
-    "nodemon": "^2.0.22"
+    "nodemon": "^2.0.14"
   }
 }
