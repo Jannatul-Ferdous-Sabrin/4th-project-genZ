@@ -1,4 +1,6 @@
 
+mongoose.set('strictQuery', false);
+
 import mongoose from "mongoose";
 
 export const Connection = async (username, password) => {
