@@ -1,4 +1,4 @@
-import { AppBar, Toolbar, styled, Typography, Box } from '@mui/material';
+import { AppBar, Toolbar, styled, Box } from '@mui/material';
 import Search from './Search';
 import CustomerButtons from './CustomerButtons';
 
