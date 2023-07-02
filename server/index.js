@@ -6,7 +6,7 @@ import DefaultData from './default.js';
 const app = express();
 
 dotenv.config();
-const PORT = 8080;
+const PORT = process.env.PORT;
 const USERNAME = process.env.DB_USERNAME;
 const PASSWORD = process.env.DB_PASSWORD;
 
@@ -17,7 +17,7 @@ app.get("/", (req,res) => {
 });
 
 app.listen(PORT, () => {
-    console.log('Server is running on PORT 8080');
+    console.log('Server is running on PORT');
   });
 
 DefaultData();  

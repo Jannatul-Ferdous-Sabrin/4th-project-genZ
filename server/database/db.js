@@ -11,8 +11,6 @@ export const Connection = async (username, password) => {
         mongoose.connect(URL, {
              useUnifiedTopology: true,  //callback functions
              useNewUrlParser: true,
-             useCreateIndex: true,
-             useFindAndModify: false
             });
         console.log('Database Connected Successfully');
     } catch (error) {
