@@ -3,8 +3,6 @@ import dotenv from 'dotenv';
 import Connection from './database/db.js';
 import DefaultData from './default.js';
 
-
-
 const app = express();
 
 dotenv.config();
