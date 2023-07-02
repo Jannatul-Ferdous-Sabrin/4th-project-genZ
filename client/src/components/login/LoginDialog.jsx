@@ -1,6 +1,6 @@
 import { useState } from "react";
  
-import {authenticateSignup} from '../../service/api';
+import {authenticateSignup} from "../../service/api";
 
 import { Box, Dialog,TextField,Button, Typography,styled} from "@mui/material"; 
 
@@ -103,6 +103,8 @@ const onInputChange = (e) => {
 
 const signupUser =async() => {
     let response = await authenticateSignup(signup);
+    if (!response) return;
+    handleClose();
    
     
 }
@@ -125,8 +127,8 @@ const signupUser =async() => {
              <Text>By continuing, you agree to our's Terms of Use and Privacy Policy.</Text>
              <LoginButton>Login</LoginButton>
              <Typography style={{textAlign:'center'}}>OR</Typography>
-             <RequestOTP>Request OTP</RequestOTP>
-             <CreateAccount onClick={() => toggleSignup()}>New to genZquest? Create an account </CreateAccount>
+             <RequestOTP>Reset</RequestOTP>
+             <CreateAccount onClick={() => toggleSignup()}>New to genZquest? Create an account</CreateAccount>
              
              </Wrapper>
 

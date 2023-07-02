@@ -2,18 +2,20 @@
 export const data = {
   users: [
     {
-      name: 'Fered',
-      email: 'delray@gmail.com',
+      firstname: 'jannat',
+      lastname: 'ferdous',
+      username: 'sabb',
+      email: 'delray12@gmail.com',
       password: 'password123',
       phone: '1234567890',
-      address: '123 Uposhohor',
     },
     {
-      name: 'Lana',
+      firstname: 'nijhum',
+      lastname: 'mahi',
+      username: 'nijhh',
       email: 'ayja@gmail.com',
       password: 'pass123',
       phone: '9876543210',
-      address: '456 housing',
     },
   ],
 };
