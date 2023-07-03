@@ -2,12 +2,12 @@
 export const data = {                                  //data=object, users=property
   users: [
     {
-      firstname: 'jannat',
-      lastname: 'ferdous',
-      username: 'sabb',
-      email: 'delray12@gmail.com',
-      password: 'password123',
-      phone: '1234567890',
+      firstname: 'Maax',
+      lastname: 'nuha',
+      username: 'alex',
+      email: 'alia12@gmail.com',
+      password: 'Pass890',
+      phone: '67802456898',
     },
   ],
 };
