@@ -9,13 +9,5 @@ export const data = {
       password: 'password123',
       phone: '1234567890',
     },
-    {
-      firstname: 'nijhum',
-      lastname: 'mahi',
-      username: 'nijhh',
-      email: 'ayja@gmail.com',
-      password: 'pass123',
-      phone: '9876543210',
-    },
   ],
 };
