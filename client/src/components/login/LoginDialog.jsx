@@ -1,7 +1,7 @@
 
 import { useState } from "react";
  
-import {authenticateSignup} from '../../service/api';
+import {authenticateSignup, authenticateLogin} from '../../service/api';
 
 import { Box, Dialog,TextField,Button, Typography,styled} from "@mui/material"; 
 
@@ -82,11 +82,18 @@ const signupInitialValues = {
     password: '',
     phone: ''
 };
+const loginInitialValues = {
+    username: '',
+    password: ''
+}
+
+
 const LoginDialog =({open,setOpen}) =>{
 
 
 const [account, toggleAccount]= useState(accountInitialValues.login);
 const [ signup, setSignup ] = useState(signupInitialValues);
+const [ login, setLogin ] = useState(loginInitialValues);
 
 
 
@@ -105,11 +112,22 @@ const onInputChange = (e) => {
 }
 
 const signupUser =async() => {
-     await authenticateSignup(signup);
-    
-   
-    
-}
+      let response = await authenticateSignup(signup);
+      if (!response) return;
+      handleClose();
+} 
+  
+const onValueChange = (e) => {
+    setLogin({ ...login, [e.target.name]: e.target.value });
+  };
+  
+
+ 
+const loginUser =async() => {
+    let response = await authenticateLogin(login );
+    console.log(response);
+} 
+
 
     return(
         <Dialog open={open} onClose={handleClose} PaperProps={{sx:{maxWidth:'unset'}}}>
@@ -124,13 +142,13 @@ const signupUser =async() => {
                 {  account.View ==='login' ?
                 <Wrapper>
 
-             <TextField variant="standard" label="Enter Email/mobile number"/>
-             <TextField variant="standard" label="Enter password"/>
+             <TextField variant="standard" onChange={(e) => onValueChange(e)} name='login' label="Enter Email/mobile number"/>
+             <TextField variant="standard" onChange={(e) => onValueChange(e)} name='password' label="Enter password"/>
              <Text>By continuing, you agree to our's Terms of Use and Privacy Policy.</Text>
-             <LoginButton>Login</LoginButton>
+             <LoginButton onClick={() => loginUser()}>Login</LoginButton>
              <Typography style={{textAlign:'center'}}>OR</Typography>
              <RequestOTP>Reset OTP</RequestOTP>
-             <CreateAccount onClick={() => toggleSignup()}>New to Magna? Create an account</CreateAccount>
+             <CreateAccount onClick={() => toggleSignup()}>New to genZquest? Create an account</CreateAccount>
              
              </Wrapper>
 
@@ -150,8 +168,6 @@ const signupUser =async() => {
 
             </Wrapper>
 }
-
-
 
 </Box>      
             </Component>
