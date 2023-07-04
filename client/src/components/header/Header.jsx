@@ -24,6 +24,9 @@ const Header = () => {
       <Toolbar>
         <Component>
           <img src={logoURL} alt="logo" style={{ width: 200 }} />
+          <Box>
+
+          </Box>
         </Component>
         <Search />
         <CustomerButtonsWrapper>
@@ -32,6 +35,7 @@ const Header = () => {
       </Toolbar>
     </StyledHeader>
   );
+  
 };
 
 export default Header;

@@ -1,7 +1,10 @@
 
+
+import Banner from './Banner';
+
 const Home = ()=>{
     return(
-<p>home</p>
+<Banner/>
     )
 }
 export default Home;

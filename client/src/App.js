@@ -1,16 +1,16 @@
+// import logo from './logo.svg';
 import './App.css';
 
-// Components
+//components
 import Header from './components/header/Header';
 import Home from './components/home/Home';
-import DataProvider from './context/DataProvider';
 
 function App() {
   return (
-    <DataProvider>
-      <Header />
-      <Home />
-    </DataProvider>
+    <div className="My Component">
+      <Header/>
+      <Home/>
+    </div>
   );
 }
 
