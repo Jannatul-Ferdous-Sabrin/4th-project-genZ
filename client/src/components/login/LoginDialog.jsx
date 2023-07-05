@@ -94,6 +94,7 @@ const LoginDialog =({open,setOpen}) =>{
 const [account, toggleAccount]= useState(accountInitialValues.login);
 const [ signup, setSignup ] = useState(signupInitialValues);
 const [ login, setLogin ] = useState(loginInitialValues);
+const [ error, setError ] = useState(false);
 
 
 
@@ -142,7 +143,8 @@ const loginUser =async() => {
                 {  account.View ==='login' ?
                 <Wrapper>
 
-             <TextField variant="standard" onChange={(e) => onValueChange(e)} name='login' label="Enter Email/mobile number"/>
+             <TextField variant="standard" onChange={(e) => onValueChange(e)} name='username' label="Enter Username"/>
+             {error && <Typography>please enter valid username or password</Typography>}
              <TextField variant="standard" onChange={(e) => onValueChange(e)} name='password' label="Enter password"/>
              <Text>By continuing, you agree to our's Terms of Use and Privacy Policy.</Text>
              <LoginButton onClick={() => loginUser()}>Login</LoginButton>
