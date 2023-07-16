@@ -3,7 +3,7 @@ import Search from './Search';
 import CustomerButtons from './CustomerButtons';
 
 const StyledHeader = styled(AppBar)({
-  background: '#2874f0',
+  background: '#20b2aa',
   height: '70px',
 });
 

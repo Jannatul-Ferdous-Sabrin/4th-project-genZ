@@ -96,8 +96,6 @@ const [ signup, setSignup ] = useState(signupInitialValues);
 const [ login, setLogin ] = useState(loginInitialValues);
 const [ error, setError ] = useState(false);
 
-
-
 const handleClose =()=>{
     setOpen(false);
     toggleAccount(accountInitialValues.login);
@@ -177,19 +175,6 @@ const loginUser =async() => {
     )
 }
 export default LoginDialog;
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
