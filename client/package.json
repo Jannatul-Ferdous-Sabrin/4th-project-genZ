@@ -33,7 +33,7 @@
       {
         "files": ["**/*.test.js"],
         "env": {
-          "jest/globals": true
+          "jest": true
         }
       }
     ]

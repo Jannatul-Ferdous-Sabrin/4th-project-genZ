@@ -10,7 +10,7 @@ export const Connection = async (username, password) => {
     try{
         mongoose.connect(URL, {
              useUnifiedTopology: true,  //callback functions
-             useNewUrlParser: true,
+             useNewUrlParser: true,     
             });
         console.log('Database Connected Successfully');
     } catch (error) {
