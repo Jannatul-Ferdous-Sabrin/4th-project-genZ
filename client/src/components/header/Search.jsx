@@ -3,9 +3,9 @@ import SearchIcon from '@mui/icons-material/Search';
 
 const SearchContainer = styled(Box)`
 background:#fff;
-width: 8%;
+width: 16%;
 border-radius:2px;
-margin-left:20px;
+margin-left:10px;
 display:flex;
 `;
 const InputSearchBase = styled(InputBase)`
@@ -14,7 +14,7 @@ width:100%;
 `;
 const SearchIconWrappper = styled(Box)`
 color:#20b2aa;
-padding:5px;
+padding:3px ;
 font-size:unset;`
 
 const Search = ()=>{

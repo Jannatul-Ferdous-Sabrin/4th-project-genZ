@@ -49,9 +49,9 @@ const CustomerButtons = () => {
 
 
       <Typography>Explore</Typography>
-      <Typography style={{ width: 135 }}>Become a Seller</Typography>
+      <Typography style={{ width: 100 }}>Find Talent</Typography>
       <Typography>Service</Typography>
-      <Typography>About</Typography>
+      <Typography>Inspiration</Typography>
       <Typography>Contact</Typography>
       <LoginDialog open={open} setOpen={setOpen} />
     </Wrapper>
