@@ -23,7 +23,7 @@ margin: 0 3% 0 auto;
 const LoginButton = styled(Button)`
 color: #20b2aa;
 background: #ffffff;
-padding: 5px 40px;
+padding: 3px 40px;
 border-radius: 2px;
 box-shadow: none;
 font-weight: 600; 

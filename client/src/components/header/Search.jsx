@@ -14,11 +14,10 @@ width:100%;
 `;
 const SearchIconWrappper = styled(Box)`
 color:#20b2aa;
-padding:2px;
+padding:5px;
 font-size:unset;`
 
 const Search = ()=>{
-
 
     return(
         <SearchContainer>
@@ -30,7 +29,5 @@ const Search = ()=>{
         </SearchContainer>
 
     )
-
-
 }
 export default Search;

@@ -21,6 +21,7 @@ const Heading = styled(Typography)`
 const SubHeading = styled(Typography)`
     font-size: 20px;
     background: #FFFFFF;
+    padding: 8px 16px;
 `;
 
 const Banner = () => {
