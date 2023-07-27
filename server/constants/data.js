@@ -2,15 +2,15 @@
 
 
 
-export const data = {                                  //data=object, users=property
+export const data = {                         //data=object,    //users=property
   users: [
     {
-      firstname: 'alex',
-      lastname: 'bell',
-      username: 'max10',
-      email: 'zzzz@gmail.com',
-      password: 'qrst89',
-      phone: '5678912345',
+      firstname: 'ssss',
+      lastname: 'ffff',
+      username: 'jj99',
+      email: 'jj22@gmail.com',
+      password: '56789',
+      phone: '01897654432',
     },
   ],
 };

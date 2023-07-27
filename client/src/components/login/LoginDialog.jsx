@@ -1,18 +1,19 @@
 
 import { useState, useContext } from "react";
- 
-import {authenticateSignup, authenticateLogin} from '../../service/api';
 
-import { Box, Dialog,TextField,Button, Typography,styled} from "@mui/material"; 
+import { authenticateSignup, authenticateLogin } from '../../service/api';
+
+import { Box, Dialog, TextField, Button, Typography, styled } from "@mui/material";
+
 import { DataContext } from "../../context/DataProvider";
 
 
 
-const Component= styled(Box)`
+const Component = styled(Box)`
 height:70vh;
 width:90vh;`
 
-const Image=styled(Box)`
+const Image = styled(Box)`
 background:#20b2aa url()center 85% no-repeat;
 height:83%;
 width:40%;
@@ -22,7 +23,7 @@ padding : 45px 35px;
 }
 
 `
-const Wrapper=styled(Box)`
+const Wrapper = styled(Box)`
 display:flex;
 flex-direction:column;
 padding : 25px 35px;
@@ -33,14 +34,14 @@ flex:1;
 }
 `;
 
-const LoginButton=styled(Button)`
+const LoginButton = styled(Button)`
 background:#20b2aa ;
 color:#FFF;
 height:48px;
 border-radius:2px;
 `;
 
-const RequestOTP=styled(Button)`
+const RequestOTP = styled(Button)`
 background: #fff;
     color: #20b2aa;
     height: 48px;
@@ -69,16 +70,14 @@ const Error = styled(Typography)`
     font-weight: 600;
 `
 const accountInitialValues = {
-    login :{
-        View:'login',
+    login: {
+        View: 'login',
         heading: 'Login',
-        subHeading:'Join as a client or freelancer'
-
-
+        subHeading: 'Join as a client or freelancer'
     },
 
-    signup:{
-        View:'signup',
+    signup: {
+        View: 'signup',
         heading: "Looks like you're new here",
         subHeading: 'Signup to get started'
     }
@@ -98,100 +97,102 @@ const loginInitialValues = {
 }
 
 
-const LoginDialog =({open,setOpen}) =>{
+const LoginDialog = ({ open, setOpen }) => {
 
 
-const [account, toggleAccount]= useState(accountInitialValues.login);
-const [ signup, setSignup ] = useState(signupInitialValues);
-const [ login, setLogin ] = useState(loginInitialValues);
-const [ error,setError ] = useState(false);
+    const [account, toggleAccount] = useState(accountInitialValues.login);
+    const [signup, setSignup] = useState(signupInitialValues);
+    const [login, setLogin] = useState(loginInitialValues);
+    const [error, setError] = useState(false);
+    const { setAccount } = useContext(DataContext);
 
-const {setAccount} = useContext(DataContext);
-const handleClose =()=>{
-    setOpen(false);
-    toggleAccount(accountInitialValues.login);
-    setError(false);
-}
 
-const toggleSignup = () => {
-    toggleAccount(accountInitialValues.signup);
-}
+    const handleClose = () => {
+        setOpen(false);
+        toggleAccount(accountInitialValues.login);
+        setError(false);
+    }
 
-const onInputChange = (e) => {
-    setSignup({ ...signup, [e.target.name]: e.target.value });
-    
-}
+    const toggleSignup = () => {
+        toggleAccount(accountInitialValues.signup);
+    }
 
-const signupUser =async() => {
-      let response = await authenticateSignup(signup);
-      if (!response) return;
-      handleClose();
-      setAccount(signup.firstname);
-} 
-  
-const onValueChange = (e) => {
-    setLogin({ ...login, [e.target.name]: e.target.value });
-  };
-  
 
- 
-const loginUser =async() => {
-    let response = await authenticateLogin(login );
-    console.log(response);
-    if (response.status === 200) {
+    const onInputChange = (e) => {
+        setSignup({ ...signup, [e.target.name]: e.target.value });
+
+    }
+
+    const signupUser = async () => {
+        let response = await authenticateSignup(signup);
+        if (!response) return;
         handleClose();
-        setAccount(response.data.data.firstname);
+        setAccount(signup.firstname);
     }
-    else{
-        setError(true);
-    }
-} 
+
+    const onValueChange = (e) => {
+        setLogin({ ...login, [e.target.name]: e.target.value });
+    };
 
 
-    return(
-        <Dialog open={open} onClose={handleClose} PaperProps={{sx:{maxWidth:'unset'}}}>
+
+    const loginUser = async () => {
+        let response = await authenticateLogin(login);
+        console.log(response);
+        if (response.status === 200) {
+            handleClose();
+            setAccount(response.data.data.firstname);
+        }
+        else {
+            setError(true);
+        }
+    }
+
+
+    return (
+        <Dialog open={open} onClose={handleClose} PaperProps={{ sx: { maxWidth: 'unset' } }}>
             <Component>
-            <Box style={{display:'flex', height:'100%'}}>  
+                <Box style={{ display: 'flex', height: '100%' }}>
 
-                <Image>
-                    <Typography variant="h5">{account.heading}</Typography>
-                    <Typography style={{marginTop:20}}>{account.subHeading}</Typography>
-                </Image>
+                    <Image>
+                        <Typography variant="h5">{account.heading}</Typography>
+                        <Typography style={{ marginTop: 20 }}>{account.subHeading}</Typography>
+                    </Image>
 
-                {  account.View ==='login' ?
-                <Wrapper>
+                    {account.View === 'login' ?
+                        <Wrapper>
 
-             <TextField variant="standard" onChange={(e) => onValueChange(e)} name='username' label="Enter Username"/>
-             {error && <Error>please enter valid username or password</Error>}
-             <TextField variant="standard" onChange={(e) => onValueChange(e)} name='password' label="Enter password"/>
-             <Text>By continuing, you agree to our's Terms of Use and Privacy Policy.</Text>
-             <LoginButton onClick={() => loginUser()}>Login</LoginButton>
-             <Typography style={{textAlign:'center'}}>OR</Typography>
-             <RequestOTP>Reset OTP</RequestOTP>
-             <CreateAccount onClick={() => toggleSignup()}>New to genZquest? Create an account</CreateAccount>
-             
-             </Wrapper>
+                            <TextField variant="standard" onChange={(e) => onValueChange(e)} name='username' label="Enter Username" />
+                            {error && <Error>please enter valid username or password</Error>}
+                            <TextField variant="standard" onChange={(e) => onValueChange(e)} name='password' label="Enter password" />
+                            <Text>By continuing, you agree to our's Terms of Use and Privacy Policy.</Text>
+                            <LoginButton onClick={() => loginUser()}>Login</LoginButton>
+                            <Typography style={{ textAlign: 'center' }}>OR</Typography>
+                            <RequestOTP>Reset OTP</RequestOTP>
+                            <CreateAccount onClick={() => toggleSignup()}>New to genZquest? Create an account</CreateAccount>
 
-             :
+                        </Wrapper>
 
-             <Wrapper>
+                        :
 
-                    <TextField variant="standard" onChange={(e) => onInputChange(e)} name='firstname' label='Enter Firstname' />
-                    <TextField variant="standard" onChange={(e) => onInputChange(e)} name='lastname' label='Enter Lastname' />
-                    <TextField variant="standard" onChange={(e) => onInputChange(e)} name='username' label='Enter Username' />
-                    <TextField variant="standard" onChange={(e) => onInputChange(e)} name='email' label='Enter Email' />
-                    <TextField variant="standard" onChange={(e) => onInputChange(e)} name='password' label='Enter Password' />
-                    <TextField variant="standard" onChange={(e) => onInputChange(e)} name='phone' label='Enter Phone' />
-    
-                    <LoginButton onClick={() => signupUser()} >Continue</LoginButton>
-            
+                        <Wrapper>
 
-            </Wrapper>
-}
+                            <TextField variant="standard" onChange={(e) => onInputChange(e)} name='firstname' label='Enter Firstname' />
+                            <TextField variant="standard" onChange={(e) => onInputChange(e)} name='lastname' label='Enter Lastname' />
+                            <TextField variant="standard" onChange={(e) => onInputChange(e)} name='username' label='Enter Username' />
+                            <TextField variant="standard" onChange={(e) => onInputChange(e)} name='email' label='Enter Email' />
+                            <TextField variant="standard" onChange={(e) => onInputChange(e)} name='password' label='Enter Password' />
+                            <TextField variant="standard" onChange={(e) => onInputChange(e)} name='phone' label='Enter Phone' />
 
-</Box>      
+                            <LoginButton onClick={() => signupUser()} >Continue</LoginButton>
+
+
+                        </Wrapper>
+                    }
+
+                </Box>
             </Component>
-            </Dialog>
+        </Dialog>
     )
 }
 export default LoginDialog;
